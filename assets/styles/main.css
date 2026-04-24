@@ -22,3 +22,7 @@ nav ul{
 .div-logo{
     display: flex;
 }
+
+.div-logo span{
+    display: block;
+}
