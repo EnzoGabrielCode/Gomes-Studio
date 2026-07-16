@@ -1,33 +1,743 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gomes Studio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>gomes studio — Brand Identity Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17181c;
+    --ink-soft:#1f2024;
+    --bone:#d9cfc1;
+    --bone-soft:#efe9df;
+    --clay:#f4f1ea;
+    --clay-deep:#3a362e;
+    --smoke:#f4f1ea;
+    --muted:#9a968d;
+    --line: rgba(244,241,234,0.14);
+    --line-dark: rgba(23,24,28,0.14);
+    --radius: 2px;
+  }
 
-    <!-- styles -->
-    <link rel="stylesheet" href="./assets/styles/main.css">
-    <link rel="stylesheet" href="./assets/styles/reset.css">
+  *{margin:0;padding:0;box-sizing:border-box;}
 
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--ink);
+    color:var(--smoke);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+
+  img, .img-placeholder{max-width:100%;display:block;}
+
+  a{color:inherit;text-decoration:none;}
+
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--clay);
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    line-height:1.1;
+  }
+
+  em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--clay);
+  }
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- IMAGE PLACEHOLDER ---------- */
+  .img-placeholder{
+    background:
+      repeating-linear-gradient(135deg, rgba(184,135,90,0.08) 0 10px, transparent 10px 20px);
+    border:1px dashed var(--clay-deep);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--muted);
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.05em;
+    padding:12px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    background:rgba(20,18,16,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:20px 32px;
+    max-width:1080px;
+    margin:0 auto;
+  }
+
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Space Mono', monospace;
+    font-size:0.85rem;
+    letter-spacing:0.05em;
+  }
+
+  .logo-mark{
+    width:32px;height:32px;
+    border:1.5px solid var(--clay);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    transform:rotate(-3deg);
+  }
+
+  .nav-links{
+    display:flex;
+    gap:36px;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+  }
+
+  .nav-links a{
+    position:relative;
+    padding-bottom:4px;
+    transition:color .25s ease;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0;bottom:0;
+    width:0;height:1px;
+    background:var(--clay);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover{color:var(--clay);}
+  .nav-links a:hover::after{width:100%;}
+
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+  }
+  .nav-toggle span{
+    width:24px;height:1.5px;
+    background:var(--smoke);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:180px 0 90px;
+    position:relative;
+  }
+
+  .hero-frame{
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:64px 48px;
+    text-align:center;
+    position:relative;
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 92% 100%, 0 100%);
+  }
+
+  .hero h1{
+    font-size:clamp(2.2rem, 5vw, 3.6rem);
+    margin-top:18px;
+  }
+
+  .hero-sub{
+    margin-top:24px;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  .btn{
+    display:inline-block;
+    margin-top:36px;
+    padding:16px 34px;
+    border:1px solid var(--clay);
+    border-radius:2px;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--smoke);
+    transition:background .3s ease, color .3s ease;
+  }
+  .btn:hover{
+    background:var(--clay);
+    color:var(--ink);
+  }
+
+  .hero-intro{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:32px;
+    margin-top:90px;
+    flex-wrap:wrap;
+  }
+
+  .hero-intro p{
+    font-size:1.3rem;
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    line-height:1.35;
+    color:var(--bone-soft);
+    max-width:340px;
+  }
+
+  .brand-strip{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:16px;
+  }
+
+  .icon-row{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    color:var(--muted);
+  }
+  .icon-row svg{width:20px;height:20px;stroke:var(--muted);}
+
+  .client-marks{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    align-items:center;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    color:var(--muted);
+    justify-content:flex-end;
+  }
+
+  @media (max-width:760px){
+    .hero-intro{flex-direction:column;align-items:flex-start;}
+    .brand-strip{align-items:flex-start;}
+    .icon-row, .client-marks{justify-content:flex-start;}
+  }
+
+  /* ---------- PROJETOS ---------- */
+  .projetos{
+    background:var(--bone);
+    color:var(--ink);
+    padding:110px 0;
+  }
+
+  .projetos h2{
+    text-align:center;
+    font-size:0.85rem;
+    font-family:'Space Mono', monospace;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--clay-deep);
+    margin-bottom:56px;
+  }
+
+  .project-card{
+    display:grid;
+    grid-template-columns:112px 1fr;
+    grid-template-rows:auto auto;
+    column-gap:24px;
+    row-gap:4px;
+    align-items:start;
+    padding:28px 0;
+    border-top:1px solid var(--line-dark);
+  }
+  .project-card:last-of-type{border-bottom:1px solid var(--line-dark);}
+
+  .project-card .img-placeholder{
+    grid-row:1 / 3;
+    aspect-ratio:3/4;
+    border-radius:16px;
+    color:var(--clay-deep);
+    border-color:var(--clay-deep);
+  }
+
+  .project-card h3{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.01em;
+  }
+
+  .project-card p{
+    color:#5c564c;
+    font-size:0.9rem;
+    max-width:340px;
+  }
+
+  .project-year{
+    grid-column:2;
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    color:var(--clay-deep);
+    align-self:end;
+  }
+
+  @media (max-width:520px){
+    .project-card{grid-template-columns:88px 1fr;}
+  }
+
+  .projetos-cta{
+    text-align:center;
+    margin-top:56px;
+  }
+  .btn-dark{
+    display:inline-block;
+    padding:16px 34px;
+    background:var(--ink);
+    color:var(--smoke);
+    border-radius:2px;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    transition:opacity .3s ease;
+  }
+  .btn-dark:hover{opacity:0.8;}
+
+  /* ---------- SOBRE / BIO ---------- */
+  .sobre{
+    padding:120px 0 80px;
+    position:relative;
+  }
+
+  .bio-card{
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:36px 40px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .bio-stamp{
+    position:absolute;
+    top:-28px; right:-50px;
+    width:180px;height:110px;
+    background:var(--smoke);
+    transform:rotate(9deg);
+    z-index:0;
+  }
+
+  .bio-top{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    position:relative;
+    z-index:1;
+  }
+
+  .avatar-placeholder{
+    width:52px;height:52px;
+    border-radius:50%;
+    flex-shrink:0;
+    background:
+      repeating-linear-gradient(135deg, rgba(184,120,90,0.25) 0 8px, rgba(184,120,90,0.08) 8px 16px);
+    border-color:#a86a4a;
+    font-size:0.55rem;
+  }
+
+  .bio-text{position:relative;z-index:1;}
+
+  .bio-text .name{
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+    line-height:1.3;
+  }
+  .bio-text .name em{font-style:italic;color:var(--clay);}
+
+  .bio-text p.desc{
+    margin-top:20px;
+    color:var(--bone-soft);
+    font-size:0.95rem;
+    max-width:560px;
+  }
+  .bio-text strong{color:var(--clay);font-weight:500;}
+
+  /* ---------- METODOLOGIA ---------- */
+  .metodologia{
+    padding:20px 0 140px;
+  }
+
+  .metodologia h2{
+    font-size:2.2rem;
+    text-align:center;
+    margin-bottom:48px;
+  }
+
+  .accordion-item{
+    border:1px solid rgba(244,241,234,0.1);
+    border-radius:20px;
+    margin-bottom:16px;
+    overflow:hidden;
+    background:linear-gradient(180deg, #26272c 0%, #1a1b1f 55%, #131417 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.06),
+      0 8px 20px rgba(0,0,0,0.25);
+  }
+
+  .accordion-trigger{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:none;
+    border:none;
+    color:var(--smoke);
+    padding:22px 26px;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.05rem;
+    cursor:pointer;
+    text-align:left;
+  }
+
+  .accordion-trigger .num{
+    font-family:'Space Mono', monospace;
+    font-style:normal;
+    font-size:0.75rem;
+    color:var(--clay);
+    margin-right:14px;
+  }
+
+  .chevron{
+    width:10px;height:10px;
+    border-right:1.5px solid var(--muted);
+    border-bottom:1.5px solid var(--muted);
+    transform:rotate(45deg);
+    transition:transform .3s ease;
+    flex-shrink:0;
+  }
+
+  .accordion-item.open .chevron{
+    transform:rotate(-135deg);
+  }
+
+  .accordion-panel{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+  }
+
+  .accordion-panel-inner{
+    padding:0 26px 24px 62px;
+    color:var(--muted);
+    font-size:0.92rem;
+    max-width:600px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:48px 0;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  footer .eyebrow{color:var(--muted);}
+
+  #contato{scroll-margin-top:100px;}
+  #portfolio{scroll-margin-top:100px;}
+  #processo{scroll-margin-top:100px;}
+
+  /* ---------- MOBILE NAV ---------- */
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed;
+      top:66px; left:0; right:0;
+      background:var(--ink);
+      flex-direction:column;
+      gap:0;
+      border-bottom:1px solid var(--line);
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .3s ease;
+    }
+    .nav-links.open{max-height:300px;}
+    .nav-links a{
+      padding:18px 32px;
+      width:100%;
+      border-top:1px solid var(--line);
+    }
+    .nav-toggle{display:flex;}
+  }
+</style>
 </head>
 <body>
-    <header>
-        <div class="div-logo">
-            <img class="logo" src="./assets/img/pngwing.com.png" alt="">
-            <h2>
-                <span>Gomes</span>
-                <span>Studio</span>
-            </h2>
+
+<header>
+  <nav>
+    <div class="logo">
+      <span class="logo-mark">G</span>
+      gomes<br>studio
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">home</a>
+      <a href="#processo">processo</a>
+      <a href="#portfolio">portfólio</a>
+      <a href="#contato">contato</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ---------- HERO ---------- -->
+  <section class="hero" id="home">
+    <div class="wrap">
+      <div class="hero-frame">
+        <span class="eyebrow">Brand Identity Studio &nbsp;·&nbsp; Est. 2020</span>
+        <h1>Sua <em>marca</em> fala<br>antes de você!</h1>
+        <a href="#contato" class="btn">Solicite uma proposta</a>
+      </div>
+
+      <div class="hero-intro">
+        <p>Criamos identidades visuais que <em>transformam</em><br>
+          estratégia em <strong>marcas memoráveis</strong></p>
+
+        <div class="brand-strip">
+          <div class="icon-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 12h2l2-7 3 14 3-10 2 3h4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 3l7 4v5c0 5-3 8-7 9-4-1-7-4-7-9V7l7-4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 15c2-4 4 4 6 0s4 4 6 0 4 4 6 0" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M9 8h6M9 12h4" stroke-linecap="round"/></svg>
+          </div>
+          <div class="client-marks">
+            <span>Yadi</span>
+            <span>Montelier</span>
+            <span>Autêntico</span>
+          </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="">Sobre</a></li>
-                <li><a href="">Portfólio</a></li>
-                <li><a href="">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main></main>
-    <footer></footer>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- PROJETOS ---------- -->
+  <section class="projetos" id="portfolio">
+    <div class="wrap">
+      <h2>Projetos</h2>
+
+      <div class="project-card">
+        <div class="img-placeholder" style="height:120px;">imagem: montelier.jpg</div>
+        <div>
+          <h3>Montelier</h3>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</p>
+        </div>
+        <span class="project-year">2023</span>
+      </div>
+
+      <div class="project-card">
+        <div class="img-placeholder" style="height:120px;">imagem: autentico-food.jpg</div>
+        <div>
+          <h3>Autêntico Food</h3>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</p>
+        </div>
+        <span class="project-year">2023</span>
+      </div>
+
+      <div class="project-card">
+        <div class="img-placeholder" style="height:120px;">imagem: cafeteria-moment.jpg</div>
+        <div>
+          <h3>Cafeteria Moment</h3>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</p>
+        </div>
+        <span class="project-year">2021</span>
+      </div>
+
+      <div class="project-card">
+        <div class="img-placeholder" style="height:120px;">imagem: lumabeauty.jpg</div>
+        <div>
+          <h3>LumaBeauty</h3>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</p>
+        </div>
+        <span class="project-year">2025</span>
+      </div>
+
+      <div class="projetos-cta">
+        <a href="#portfolio" class="btn-dark">Veja todos os projetos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- SOBRE / BIO ---------- -->
+  <section class="sobre" id="processo">
+    <div class="wrap">
+      <div class="bio-card">
+        <div class="bio-stamp"></div>
+        <div class="bio-top">
+          <div class="img-placeholder avatar-placeholder">foto</div>
+          <p class="name">Olá! Sou <em>Ruan Gomes</em>,<br>fundador da <em>GomesStudio</em>.</p>
+        </div>
+        <div class="bio-text">
+          <p class="desc">
+            Especialista em identidade visual, desenvolvo marcas que unem
+            <strong>estratégia</strong>, <strong>criatividade</strong> e <strong>propósito</strong>.
+            Meu objetivo é criar identidades autênticas, memoráveis e alinhadas à essência
+            de cada negócio, transformando ideias em marcas que comunicam com clareza e geram valor.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- METODOLOGIA ---------- -->
+  <section class="metodologia">
+    <div class="wrap">
+      <h2>Metodologia</h2>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span><span class="num">01</span>Análise e Estratégia</span>
+            <span class="chevron"></span>
+          </button>
+          <div class="accordion-panel">
+            <div class="accordion-panel-inner">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span><span class="num">02</span>Pesquisa de Campo</span>
+            <span class="chevron"></span>
+          </button>
+          <div class="accordion-panel">
+            <div class="accordion-panel-inner">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span><span class="num">03</span>Logotipo e Identidade Visual</span>
+            <span class="chevron"></span>
+          </button>
+          <div class="accordion-panel">
+            <div class="accordion-panel-inner">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span><span class="num">04</span>Apresentação de Marca</span>
+            <span class="chevron"></span>
+          </button>
+          <div class="accordion-panel">
+            <div class="accordion-panel-inner">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span><span class="num">05</span>Entrega do Projeto</span>
+            <span class="chevron"></span>
+          </button>
+          <div class="accordion-panel">
+            <div class="accordion-panel-inner">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <span class="eyebrow">gomes studio © 2026</span>
+    <span class="eyebrow">contato@gomesstudio.com</span>
+  </div>
+</footer>
+
+<script>
+  // Menu mobile
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Accordion da metodologia
+  document.querySelectorAll('.accordion-item').forEach(item => {
+    const trigger = item.querySelector('.accordion-trigger');
+    const panel = item.querySelector('.accordion-panel');
+
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      // fecha os outros
+      document.querySelectorAll('.accordion-item.open').forEach(other => {
+        if (other !== item) {
+          other.classList.remove('open');
+          other.querySelector('.accordion-panel').style.maxHeight = null;
+        }
+      });
+
+      if (isOpen) {
+        item.classList.remove('open');
+        panel.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
