@@ -178,8 +178,8 @@ em{font-style:italic;font-weight:700;}
   width:1px;
   background:var(--line-soft);
 }
-.hero-lines::before{left:calc(180 * var(--u));}
-.hero-lines::after{left:calc(902 * var(--u));}
+.hero-lines::before{left:calc(50% - 360 * var(--u));}
+.hero-lines::after{left:calc(50% + 362 * var(--u));}
 
 .hero-content{
   position:relative;
@@ -353,7 +353,7 @@ em{font-style:italic;font-weight:700;}
 .g3d{
   position:absolute;
   z-index:-1;
-  left:0;
+  left:calc(50% - 540 * var(--u));
   top:calc(104 * var(--u));
   width:calc(600 * var(--u));
   -webkit-mask-image:radial-gradient(closest-side, #000 70%, transparent 100%);
@@ -367,7 +367,7 @@ em{font-style:italic;font-weight:700;}
   grid-template-columns:repeat(3, calc(176 * var(--u)));
   column-gap:calc(26 * var(--u));
   row-gap:calc(22 * var(--u));
-  margin-left:calc(357 * var(--u));
+  margin-left:calc(50% - 183 * var(--u));
 }
 
 .ent-card{
