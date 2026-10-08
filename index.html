@@ -14,16 +14,15 @@
 <body>
 
 <header class="site-header">
-  <nav class="nav wrap-wide">
+  <nav class="nav">
     <a href="#home" class="logo" aria-label="gomes studio — início">
-      <img src="assets/img/logos/gomes-studio.png" alt="" class="logo-mark" width="66" height="66">
-      <span class="logo-text"><strong>gomes</strong><br>studio</span>
+      <img src="assets/img/logos/gomes-studio.png" alt="" class="logo-mark" width="28" height="28">
+      <span class="logo-text"><strong>gomes</strong>studio</span>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#home" class="active">home</a>
-      <a href="#processo">processo</a>
-      <a href="#portfolio">portfólio</a>
-      <a href="#contato">contato</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#contato">Contato</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -35,177 +34,147 @@
 
   <!-- ---------- HERO ---------- -->
   <section class="hero" id="home">
-    <div class="wrap-wide">
-      <div class="hero-frame bevel">
-        <h1>Sua <em class="script">marca</em> fala<br>antes de você!</h1>
-        <p class="hero-sub">
-          <span>Brand Identity Studio</span>
-          <span>Est. 2020</span>
-        </p>
-        <a href="#contato" class="btn btn-glass">Solicite uma proposta</a>
-      </div>
+    <div class="hero-lines" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <h1>Sua <span class="marca-box"><em class="script">marca</em><i class="h h1"></i><i class="h h2"></i><i class="h h3"></i><i class="h h4"></i><i class="h h5"></i><i class="h h6"></i><i class="h h7"></i><i class="h h8"></i></span> fala<br>antes de você!</h1>
+      <p class="hero-sub">
+        <span>Brand Identity Studio</span>
+        <span>Est. 2020</span>
+      </p>
+      <a href="#contato" class="btn-proposta">Solicite uma proposta</a>
     </div>
 
-    <div class="wrap hero-intro">
-      <p class="hero-claim">
-        Criamos identidades visuais<br>
-        que <em>transformam</em><br>
-        estratégia em<br>
-        <em>marcas memoráveis</em>
+    <div class="strip" id="sobre">
+      <p class="strip-text">
+        Criamos identidades visuais que <em>transformam</em><br>
+        estratégia em <em>marcas memoráveis</em>
       </p>
-
       <ul class="client-logos" aria-label="Marcas criadas pelo estúdio">
-        <li><img src="assets/img/logos/montelier.png" alt="Montelier" class="mark"></li>
-        <li><img src="assets/img/logos/drc.png" alt="DRC" class="mark"></li>
-        <li><img src="assets/img/logos/luma.png" alt="LumaBeauty" class="mark mark-wide"></li>
-        <li><img src="assets/img/logos/r.png" alt="R" class="mark"></li>
-        <li><img src="assets/img/logos/yadi.png" alt="Yadi" class="word"></li>
-        <li><img src="assets/img/logos/onthefloor.png" alt="On The Floor" class="word"></li>
-        <li><img src="assets/img/logos/autentico.png" alt="Autêntico" class="word word-wide"></li>
+        <li><img src="assets/img/logos/montelier.png" alt="Montelier"></li>
+        <li><img src="assets/img/logos/drc.png" alt="DRC"></li>
+        <li><img src="assets/img/logos/luma.png" alt="LumaBeauty" class="wide"></li>
+        <li><img src="assets/img/logos/r.png" alt="Rodney Gomes"></li>
+        <li><img src="assets/img/logos/yadi.png" alt="Yadi" class="wide"></li>
+        <li><img src="assets/img/logos/onthefloor.png" alt="On The Floor" class="wide"></li>
+        <li><img src="assets/img/logos/autentico.png" alt="Autêntico" class="xwide"></li>
       </ul>
     </div>
   </section>
 
   <!-- ---------- PROJETOS ---------- -->
   <section class="projetos" id="portfolio">
-    <div class="wrap">
-      <h2 class="section-title">Projetos</h2>
+    <h2 class="section-title">PRO<em>JET</em>OS</h2>
 
-      <article class="project-card">
-        <div class="project-media">
-          <img src="assets/img/projetos/montelier.webp" alt="Cartões de visita da marca Montelier" loading="lazy">
-        </div>
-        <div class="project-body">
-          <h3>MONTELIER</h3>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam</p>
-          <span class="project-year">2023</span>
-        </div>
-      </article>
+    <div class="project-grid">
+      <a href="#portfolio" class="project-tile">
+        <img src="assets/img/projetos/cafeteria-moment.webp" alt="Logo da Cafeteria Moment aplicado na vitrine" loading="lazy" style="object-position:45% 50%;">
+        <span>Cafeteria Moment</span>
+      </a>
+      <a href="#portfolio" class="project-tile">
+        <img src="assets/img/projetos/rodney-gomes.webp" alt="Livros com a identidade de Rodney Gomes" loading="lazy">
+        <span>Rodney Gomes</span>
+      </a>
+      <a href="#portfolio" class="project-tile">
+        <img src="assets/img/projetos/on-the-floor.webp" alt="Cartão de visita da On the Floor sobre um notebook" loading="lazy">
+        <span>On the Floor</span>
+      </a>
+      <a href="#portfolio" class="project-tile">
+        <img src="assets/img/projetos/montelier-3d.webp" alt="Símbolo da Montelier em metal sobre fundo azul" loading="lazy">
+        <span>Montelier - Art &amp; Metal</span>
+      </a>
+      <a href="#portfolio" class="project-tile">
+        <img src="assets/img/projetos/autentico-food.webp" alt="Site da Autêntico Food no celular ao lado de um hambúrguer" loading="lazy" style="object-position:50% 22%;">
+        <span>Autêntico Food</span>
+      </a>
+      <a href="#portfolio" class="project-tile">
+        <img src="assets/img/projetos/lumabeauty.webp" alt="Painel da Luma Beauty em um salão" loading="lazy" style="object-position:70% 30%;transform:scale(1.25);transform-origin:70% 30%;">
+        <span>Luma Beauty</span>
+      </a>
+    </div>
 
-      <article class="project-card">
-        <div class="project-media">
-          <img src="assets/img/projetos/autentico-food.webp" alt="Site da Autêntico Food no celular ao lado de um hambúrguer" loading="lazy" style="object-position:center 25%;">
-        </div>
-        <div class="project-body">
-          <h3>AUTÊNTICO FOOD</h3>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam</p>
-          <span class="project-year">2023</span>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-media">
-          <img src="assets/img/projetos/cafeteria-moment.webp" alt="Logo da Cafeteria Moment aplicado na vitrine" loading="lazy" style="object-position:40% center;">
-        </div>
-        <div class="project-body">
-          <h3>Cafeteria Moment</h3>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam</p>
-          <span class="project-year">2021</span>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-media">
-          <img src="assets/img/projetos/lumabeauty.webp" alt="Painel da LumaBeauty em um salão" loading="lazy" style="object-position:40% 45%;transform:scale(1.35);">
-        </div>
-        <div class="project-body">
-          <h3>LumaBeauty</h3>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam</p>
-          <span class="project-year">2025</span>
-        </div>
-      </article>
-
-      <div class="projetos-cta">
-        <a href="#portfolio" class="btn btn-dark">Veja todos os projetos</a>
-      </div>
+    <div class="center">
+      <a href="#portfolio" class="btn btn-purple">Ver mais projetos <svg class="arrow" viewBox="0 0 26 18" aria-hidden="true"><path d="M1 9h23M16 1l8 8-8 8"/></svg></a>
     </div>
   </section>
 
-  <!-- ---------- SOBRE / BIO ---------- -->
-  <section class="sobre" id="processo">
-    <div class="bio-stamp" aria-hidden="true"></div>
-    <div class="wrap-wide">
-      <div class="bio-card bevel">
-        <div class="bio-top">
-          <img src="assets/img/ruan-gomes.webp" alt="Foto de Ruan Gomes" class="avatar" width="140" height="140" loading="lazy">
-          <p class="name">Olá! Sou <em>Ruan Gomes</em>,<br>fundador da <em>GomesStudio</em>.</p>
-        </div>
-        <p class="desc">
-          Especialista em identidade visual,<br>
-          desenvolvo marcas que unem <em>estratégia,<br>
-          criatividade e propósito</em>.<br>
-          Meu objetivo é criar identidades autênticas,<br>
-          memoráveis e alinhadas à essência de<br>
-          cada negócio, transformando ideias em<br>
-          marcas que <em>comunicam com clareza e geram valor</em>.
-        </p>
+  <!-- ---------- ENTREGÁVEIS ---------- -->
+  <section class="entregaveis" id="entregaveis">
+    <img src="assets/img/entregaveis-g.webp" alt="" class="g3d" aria-hidden="true">
+    <h2 class="section-title">EN<em>TREGÁV</em>EIS</h2>
+
+    <div class="ent-grid">
+      <article class="ent-card c1">
+        <h3>Logotipo</h3>
+        <p>Entregamos o logotipo preparado para qualquer tipo de aplicação. Você recebe os arquivos em PDF, PNG, SVG e EPS, nas versões RGB (digital) e CMYK (impressão), além dos códigos Pantone para garantir consistência nas cores da marca.</p>
+      </article>
+      <article class="ent-card c2">
+        <h3>Ident. <br>Visual</h3>
+        <p>Além do logotipo, entregamos todo o universo visual da marca: paleta de cores, tipografias, grafismos, patterns, texturas e elementos de apoio, criando uma identidade completa e pronta para ser utilizada.</p>
+      </article>
+      <article class="ent-card c3">
+        <h3>Protótipos</h3>
+        <p>Sua marca ganha vida antes da entrega final. Enviamos as aplicações em papelaria, uniformes, materiais publicitários, redes sociais e outras peças, definidas de acordo com o pré-briefing do projeto.</p>
+      </article>
+      <div class="ent-row2">
+        <a href="#contato" class="btn btn-white">Entrar em contato <svg class="arrow" viewBox="0 0 26 18" aria-hidden="true"><path d="M1 9h23M16 1l8 8-8 8"/></svg></a>
+        <article class="ent-card c4">
+          <h3>Manual de <br>Marca</h3>
+          <p>Você recebe um guia completo com as orientações de uso da identidade visual. O manual reúne regras e boas práticas para manter a marca consistente em qualquer aplicação, seja no digital ou no impresso.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- ---------- METODOLOGIA ---------- -->
-  <section class="metodologia">
-    <div class="wrap">
-      <h2 class="section-title section-title-strong">Metodologia</h2>
+  <section class="metodologia" id="processo">
+    <h2 class="section-title">METO<em>DOLOG</em>IA</h2>
 
-      <div class="accordion">
-        <div class="accordion-item bevel">
-          <button class="accordion-trigger" aria-expanded="false">
-            <span>Análise e Estratégia</span>
-            <span class="chevron" aria-hidden="true"></span>
-          </button>
-          <div class="accordion-panel">
-            <div class="accordion-panel-inner">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
-            </div>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>Análise e Estratégia</span>
+          <span class="plus" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
           </div>
         </div>
+      </div>
 
-        <div class="accordion-item bevel">
-          <button class="accordion-trigger" aria-expanded="false">
-            <span>Pesquisa de Campo</span>
-            <span class="chevron" aria-hidden="true"></span>
-          </button>
-          <div class="accordion-panel">
-            <div class="accordion-panel-inner">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
-            </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>Logotipo e Identidade Visual</span>
+          <span class="plus" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
           </div>
         </div>
+      </div>
 
-        <div class="accordion-item bevel">
-          <button class="accordion-trigger" aria-expanded="false">
-            <span>Logotipo e Identidade Visual</span>
-            <span class="chevron" aria-hidden="true"></span>
-          </button>
-          <div class="accordion-panel">
-            <div class="accordion-panel-inner">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
-            </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>Apresentação da Marca</span>
+          <span class="plus" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
           </div>
         </div>
+      </div>
 
-        <div class="accordion-item bevel">
-          <button class="accordion-trigger" aria-expanded="false">
-            <span>Apresentação de Marca</span>
-            <span class="chevron" aria-hidden="true"></span>
-          </button>
-          <div class="accordion-panel">
-            <div class="accordion-panel-inner">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item bevel">
-          <button class="accordion-trigger" aria-expanded="false">
-            <span>Entrega do Projeto</span>
-            <span class="chevron" aria-hidden="true"></span>
-          </button>
-          <div class="accordion-panel">
-            <div class="accordion-panel-inner">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
-            </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>Entrega do Projeto</span>
+          <span class="plus" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
           </div>
         </div>
       </div>
@@ -215,10 +184,8 @@
 </main>
 
 <footer id="contato" class="site-footer">
-  <div class="wrap">
-    <span>gomes studio © 2026</span>
-    <a href="mailto:contato@gomesstudio.com">contato@gomesstudio.com</a>
-  </div>
+  <span>gomes studio © 2026</span>
+  <a href="mailto:contato@gomesstudio.com">contato@gomesstudio.com</a>
 </footer>
 
 <script src="assets/js/main.js"></script>
