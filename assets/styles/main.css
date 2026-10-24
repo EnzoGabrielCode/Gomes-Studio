@@ -31,7 +31,7 @@
   --font-script:'Brush Script MT', 'Brush Script Std', 'Yellowtail', cursive;
 }
 
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(73 * var(--u));}
 
 body{
   background:var(--bg-deep);
@@ -85,7 +85,8 @@ em{font-style:italic;font-weight:700;}
 
 /* ---------- NAV ---------- */
 .site-header{
-  position:relative;
+  position:sticky;
+  top:0;
   z-index:100;
   background:var(--bg-deep);
   border-bottom:1px solid var(--line);
@@ -488,6 +489,7 @@ em{font-style:italic;font-weight:700;}
 }
 
 #sobre, #portfolio, #processo, #contato{scroll-margin-top:16px;}
+@media (max-width:760px){html{scroll-padding-top:64px;}}
 
 /* ---------- MENU (☰) ---------- */
 .nav-links.open{
