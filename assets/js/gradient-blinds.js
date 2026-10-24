@@ -1,6 +1,6 @@
 // Fundo do hero: Gradient Blinds (React Bits) em JS puro. As persianas abrem na
 // entrada, balançam e uma luz passeia sozinha por elas, sem seguir o mouse.
-// Sem WebGL 2, a imagem da cortina em CSS continua aparecendo.
+// Sem WebGL 2, a imagem da cortina em CSS aparece no lugar.
 (() => {
   const hero = document.querySelector('.hero');
   if (!hero) return;
@@ -13,7 +13,7 @@
     blindMinWidth: 60,
     spotlightRadius: 0.6,
     spotlightSoftness: 1,
-    spotlightOpacity: 0.8,
+    spotlightOpacity: 1,
     shine: 0.4,
     relief: 0.5,
     glow: 0.4,
@@ -359,6 +359,7 @@ void main() {
   };
 
   hero.prepend(canvas);
+  hero.classList.add('has-blinds');
   new ResizeObserver(resize).observe(hero);
   new IntersectionObserver(entries => {
     visible = entries.some(entry => entry.isIntersecting);

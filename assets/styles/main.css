@@ -512,6 +512,8 @@ em{font-style:italic;font-weight:700;}
   pointer-events:none;
 }
 .hero-bg.is-ready{opacity:1;}
+/* com a animação rodando, a imagem da cortina sai e fica só o Gradient Blinds */
+.hero.has-blinds{background:var(--bg);}
 
 /* text type no título (assets/js/text-type.js) */
 .tt-ready .tt-char{opacity:0;}
