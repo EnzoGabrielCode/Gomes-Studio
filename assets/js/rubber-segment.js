@@ -1,14 +1,13 @@
-// Rubber segment (React Bits) em JS puro: a pílula do menu passeia sozinha entre
-// os links, esticando como borracha e assentando com mola. Sem seguir o mouse;
-// ao clicar num link ela vai até ele. Uso: data-rubber-segment no grupo de links.
+// Rubber segment (React Bits) em JS puro: a pílula do menu marca a seção em que
+// a pessoa está e, ao trocar, estica como borracha e assenta com mola. Não segue
+// o mouse. Uso: data-rubber-segment no grupo de links (href="#secao").
 (() => {
   const SPEED = 0.75;          // < 1 deixa o movimento mais lento que o original
   const STRETCH = 1;           // 1 = estica até cobrir os dois itens
   const SQUASH = 3;            // px que a borda de trás passa do ponto antes de assentar
   const DILATE = 0.19 / SPEED; // s esticando
   const HANDOFF = 0.15 / SPEED;
-  const CYCLE = 2600;          // ms entre um link e outro
-  const RESUME = 5000;         // pausa no ciclo depois de um clique
+  const CLICK_LOCK = 1200;     // ms ignorando o scroll suave depois de um clique
 
   const springFor = duration => {
     const k = Math.pow((2 * Math.PI) / (duration / SPEED), 2);
@@ -143,25 +142,32 @@
       }, HANDOFF * 1000);
     };
 
-    // ciclo automático
-    let timer = 0;
-    const schedule = delay => {
-      clearTimeout(timer);
-      if (reduce) return;
-      timer = setTimeout(() => {
-        if (!document.hidden && track.offsetParent) travel((current + 1) % items.length);
-        schedule(CYCLE);
-      }, delay);
+    // a pílula acompanha a seção visível
+    const targets = items.map(item => document.querySelector(item.getAttribute('href')));
+    let lockUntil = 0;
+    let pending = 0;
+    const spy = () => {
+      pending = 0;
+      if (performance.now() < lockUntil) return;
+      const line = window.innerHeight * 0.4;
+      let active = 0;
+      targets.forEach((target, i) => {
+        if (target && target.getBoundingClientRect().top <= line) active = i;
+      });
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) active = items.length - 1;
+      travel(active);
     };
+    window.addEventListener('scroll', () => { if (!pending) pending = requestAnimationFrame(spy); }, { passive: true });
 
     items.forEach((item, i) => item.addEventListener('click', () => {
+      lockUntil = performance.now() + CLICK_LOCK;
       travel(i);
-      schedule(RESUME);
+      setTimeout(spy, CLICK_LOCK + 50);
     }));
 
     new ResizeObserver(measure).observe(track);
     if (document.fonts) document.fonts.ready.then(measure);
     measure();
-    schedule(CYCLE);
+    spy();
   });
 })();

@@ -498,7 +498,7 @@ em{font-style:italic;font-weight:700;}
 
 /* ---------- ANIMAÇÕES ---------- */
 
-/* cortina animada (assets/js/hero-cortina.js); a imagem do .hero fica de reserva */
+/* fundo Gradient Blinds (assets/js/gradient-blinds.js); a imagem do .hero fica de reserva */
 .hero-bg{
   position:absolute;
   inset:0;
@@ -506,6 +506,7 @@ em{font-style:italic;font-weight:700;}
   width:100%;
   height:100%;
   display:block;
+  mix-blend-mode:lighten;
   opacity:0;
   transition:opacity 1.2s ease;
   pointer-events:none;
@@ -554,6 +555,22 @@ em{font-style:italic;font-weight:700;}
   pointer-events:none;
 }
 .specular-button__label{position:relative;z-index:2;}
+
+/* reveal ao rolar (assets/js/reveal.js) */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  filter:blur(6px);
+}
+.reveal.is-visible{
+  opacity:1;
+  transform:none;
+  filter:blur(0);
+  transition:
+    opacity .9s cubic-bezier(.22,1,.36,1) var(--reveal-delay, 0ms),
+    transform .9s cubic-bezier(.22,1,.36,1) var(--reveal-delay, 0ms),
+    filter .9s cubic-bezier(.22,1,.36,1) var(--reveal-delay, 0ms);
+}
 
 /* rubber segment no menu (assets/js/rubber-segment.js), só no desktop */
 @media (min-width:761px){
